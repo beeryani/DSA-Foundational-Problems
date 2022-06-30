@@ -79,9 +79,61 @@ Bruno = Dog()
 Bruno.name = "Bruno"
 Bruno.loudSound = "Bark Bark"
 
-print(f"{Bruno.name} is a good boy, but he creates a {Bruno.loudSound}")
+print(f"{Bruno.name} is a good boy, but he makes a {Bruno.loudSound} sound when angry")
 
 '''
 By passing the parent class in the child class, you can access the methods of parent class by initiating the child class
 '''
+
+#******Multi-level Inheritence Example*********
+'''
+Chaining of classes: Parent -> Child -> child of Child
+'''
+
+class Animal: ### Parent Class
+    def __init__(self, bark):
+        self.loudSound = bark
+
+class Dog(Animal): #### Child Class
+    def __init__(self, nameOfDog = None):
+        self.name = nameOfDog
+
+class Breed(Dog):
+    def __init__(self, breed = None):
+        self.breed = breed
+
+## initializing the instance
+
+Bruno = Breed()
+Bruno.breed = "Labrodor"
+Bruno.name = "Bruno"
+Bruno.loudSound = "Bark Bark"
+
+print(f"{Bruno.name} is a good boy, but he make a {Bruno.loudSound} sound when angry. He is a cutie {Bruno.breed}")
+
+#******Heirarchical Inheritence Example*********
+
+class Animal: ### Parent Class
+    def __init__(self, bark = None, nameOfAnimal = None):
+        self.loudSound = bark
+        self.name = nameOfAnimal
+
+class Dog(Animal): #### Child Class
+   pass
+
+class Cato(Animal): ### second child class using parent class methods
+    pass
+
+#initialize the class for
+
+Bruno = Dog()
+Kazo = Cato()
+
+Bruno.name = "Bruno"
+Kazo.name = "Kazo"
+
+Kazo.bark = "Meow"
+
+## test example
+print(f"This is {Bruno.name} & {Kazo.name} \"{Kazo.bark}\"")
 
