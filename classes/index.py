@@ -45,6 +45,43 @@ Corona.beerType = "Lager"
 Corona.beerOrigin = "Mexico"
 
 print(f"I really like Corona, it is a {Corona.beerType}, from {Corona.beerOrigin}")
-
+## calling the new method
 Corona.show()
+
+'''
+Types of Variables:
+Class Variables: Scope limited to the class being called
+Instance Variable : Scope limited to the method within the class i.e. you need to call the method to access these variables
+'''
+
+'''
+Type of Inheritence within Classes:
+1. Single Inheritence
+2. Multi-level Inheritence
+3. Hierarchial Inheritence
+4. Multiple Inheritence
+5. Hybrid Inheritence
+'''
+#******Single Inheritence Example*********
+
+class Animal: ### Parent Class
+    def __init__(self, bark):
+        self.loudSound = bark
+        print(self.loudSound)
+
+class Dog(Animal): #### Child Class
+    def __init__(self, nameOfDog = None):
+        self.name = nameOfDog
+
+## initializing the instance
+
+Bruno = Dog()
+Bruno.name = "Bruno"
+Bruno.loudSound = "Bark Bark"
+
+print(f"{Bruno.name} is a good boy, but he creates a {Bruno.loudSound}")
+
+'''
+By passing the parent class in the child class, you can access the methods of parent class by initiating the child class
+'''
 
