@@ -165,3 +165,36 @@ Jameson = Cocktail()
 Jameson.name = "Jameson"
 Jameson.mililitres = "60 ml"
 Jameson.printNote()
+
+
+#******Hybrid Inheritence Example*********
+'''
+Passing one parent to two child classes which in turn is passed to one child of child class
+'''
+class Alcohol: # first parent class
+    def __init__(self, amountOfAlcohol = None):
+        self.mililitres =  amountOfAlcohol
+
+class Beer(Alcohol): #first child class
+    def __init__(self, nameOfBeer = None):
+        self.beerBrand = nameOfBeer
+
+class Whiskey(Alcohol): #second child class
+    def __init__(self, nameOfWhiskey = None):
+        self.whiskeyBrand = nameOfWhiskey
+
+class Cocktail(Beer, Whiskey): ## this is the child of child class
+    def printNote(self, nameOfCocktail = None):
+        self.nameOfCocktail = nameOfCocktail
+    
+    def printMessage(self):
+        print(f"This is a brilliant mix of {self.beerBrand} and {self.whiskeyBrand}. We call this {self.nameOfCocktail}, this is a {self.mililitres} iced serving.")
+
+
+Margarita = Cocktail()
+Margarita.beerBrand = "Bira"
+Margarita.whiskeyBrand = "Jameson"
+Margarita.mililitres = "60 ml"
+Margarita.nameOfCocktail = "Margarita"
+
+Margarita.printMessage()
