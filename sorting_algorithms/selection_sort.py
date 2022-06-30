@@ -30,3 +30,9 @@ testArray = [90, 30, 45, 23, 56, 66, 92, 99]
 resultArray = insertionSort(testArray, len(testArray))
 
 print(f"This is the input array {testArray}, and this is the output array {resultArray}")
+
+'''
+Benefits of selection sort:
+number of swaps never cross O(N), which helps in keeping the cost low when memory write is an expensive operation
+the for loop is only used to identify/compare the numbers
+'''
