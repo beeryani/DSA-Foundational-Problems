@@ -113,6 +113,10 @@ print(f"{Bruno.name} is a good boy, but he make a {Bruno.loudSound} sound when a
 
 #******Heirarchical Inheritence Example*********
 
+'''
+One parent class is passed into two different child classes
+'''
+
 class Animal: ### Parent Class
     def __init__(self, bark = None, nameOfAnimal = None):
         self.loudSound = bark
@@ -137,3 +141,27 @@ Kazo.bark = "Meow"
 ## test example
 print(f"This is {Bruno.name} & {Kazo.name} \"{Kazo.bark}\"")
 
+#******Multiple Inheritence Example*********
+
+'''
+Passing two parent classes to one child class.
+'''
+
+class Alcohol:
+    def __init__(self, nameOfBeer = None):
+        self.name = nameOfBeer
+
+class Quantity:
+    def __init__(self, amountOfAlcohol = None):
+        self.mililitres =  amountOfAlcohol
+
+class Cocktail(Alcohol, Quantity): ## takes the arguments from the parent classes
+    def printNote(self):
+        print(f"This is a brilliant {self.name}. You are being served {self.mililitres}")
+
+## initialise the child class
+
+Jameson = Cocktail()
+Jameson.name = "Jameson"
+Jameson.mililitres = "60 ml"
+Jameson.printNote()
