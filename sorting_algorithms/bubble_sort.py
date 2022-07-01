@@ -15,8 +15,8 @@ It is an in-place algorithm as it doesn't create any major change to the shape o
 def bubbleSort(arr):
     n = len(arr)
 
-    for i in range(n - 1):
-        for j in range(n - i - 1):
+    for i in range(n):  ### important correction to the approach
+        for j in range(n - i - 1): 
             if (arr[j] > arr[j + 1]):
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
     
@@ -36,7 +36,7 @@ The array runs n^2 times, by introducing the swapFlag, we can remove the inner l
 
 def optimisedBubbleSort(arr, N):
 
-    for i in range(N-1):
+    for i in range(N):  ### important correction to the approach
         swapFlag = False
         for j in range(N - i - 1):
             if (arr[j] > arr[j+1]):
@@ -47,8 +47,8 @@ def optimisedBubbleSort(arr, N):
                 break
     return arr
 
-testArray = [90, 30, 45, 23, 56, 91, 92, 99] ## input array
 
+testArray = [90, 30, 45, 23, 56, 91, 92, 9, 2] ## input array
 resultArray = optimisedBubbleSort(testArray, len(testArray))
 
 print(f"This is the input array {testArray}, and this is the output array {resultArray}")
