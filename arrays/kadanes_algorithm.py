@@ -1,4 +1,7 @@
-from logging import log
+'''
+Kadane's Algorithm:
+Used to get maximum contiguous sum from an array
+'''
 
 def maxSubArraySum(array):
     currentSum = 0
