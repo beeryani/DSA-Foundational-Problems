@@ -36,3 +36,35 @@ petrolDesi.name = "Royal Challenger"
 petrolDesi.country = "Bengaluru"
 console.log(petrolDesi.type()) //methods need to be added with round bracket to be referenced
 petrolDesi.labelSlogan()
+
+//Tasks for understanding Constructors
+
+//Two Functions - one Objects
+let obj = {};
+
+function A () {return obj}
+function B () {return obj}
+
+let a = new A
+let b = new B
+
+console.log( a == b)
+
+/// Calculator Constructor
+
+function Calculator(num1, num2) {
+    this.inputNumOne = num1;
+    this.inputNumTwo = num2;
+    this.sum = () => {
+        return this.inputNumOne + this.inputNumTwo
+    };
+    this.mul = () => {
+        return this.inputNumOne * this.inputNumTwo
+    }
+
+}
+
+calculate = new Calculator()
+calculate.inputNumOne = 23
+calculate.inputNumTwo = 32
+console.log(calculate.read())
