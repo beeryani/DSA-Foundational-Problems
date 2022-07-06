@@ -58,11 +58,11 @@ function Counter() {
     let count = 0;
 
     this.up = () => {
-        return count++;
+        return ++count;
     };
 
     this.down = () =>  {
-        return count--;
+        return --count;
     };
 
     this.show = () =>{
@@ -73,7 +73,75 @@ function Counter() {
 let counterOne = new Counter();
 
 console.log("This is the current value of " + counterOne.show())
-console.log(counterOne.up());
-console.log(counterOne.up());
 console.log(counterOne.down());
 console.log(counterOne.down());
+
+// Task #5 
+
+let phrase = "Hello";
+
+if (true) {
+    let user = "Supremacy";
+    function sayHenlo(){
+        console.log(`${user} hue hue ${phrase}`)
+    }
+}
+
+sayHenlo();
+
+// Task #6: get back to this later
+
+// Task #7 
+
+// let x = 1;
+
+// function func() {
+//     console.log(x)
+
+//     let x = 2;
+// }
+
+// func();
+
+// Standard Properties of Function object 
+
+//Counter property
+
+function namaste() {
+    console.log("Adaab")
+    namaste.counter++
+}
+
+namaste.counter = 0;
+
+namaste();
+namaste();
+
+console.log(`${namaste.counter}`)
+
+
+//https://javascript.info/function-object
+ /* 
+ Difference b/w Function Expression and Function Declaration
+ */
+
+ //Closure
+ /* 
+ A function bundled with it's lexical scope is refered to as closure. Follow the example below:
+ */
+
+ function x() {
+     var a = 7;
+     function y() {
+         console.log(a)
+     }
+     return y;
+ }
+
+ let z = x();
+z(); // the return value of x() i.e. y() is stored in z, when z is called, it is referring to y but y needs 'a' to return value.
+/* 
+Here the concept of Closure kicks in. No matter where the function is being called, it will carry its lexical environment.
+For example, in our case, a was not reference in the global env but only within x, but y carried its lexical env, hence it could access it.
+*/
+console.log(x());
