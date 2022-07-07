@@ -38,4 +38,5 @@ Recommended Reading (https://javascript.info/closure)
 
 Main takeaways on how to use Closures to hide variables from the global scope to avoid any interference while dealing with a larger code base.
 
+## Concept 2 : Event Loops
 
