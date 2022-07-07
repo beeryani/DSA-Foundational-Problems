@@ -40,3 +40,4 @@ Main takeaways on how to use Closures to hide variables from the global scope to
 
 ## Concept 2 : Event Loops
 
+## Concept 3 : Block Scope
