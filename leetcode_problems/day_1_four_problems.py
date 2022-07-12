@@ -1,17 +1,21 @@
 '''
 # general theme on two pointer problems
-Problem no 1: https://leetcode.com/problems/merge-sorted-array/
-Problem no 2: https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
-Problem no 3: https://leetcode.com/problems/valid-palindrome/
-Problem no 4: https://leetcode.com/problems/remove-duplicates-from-sorted-array/
-'''
-'''
-Applying two pointer approach:
+Problem no 1: https://leetcode.com/problems/merge-sorted-array/ : Not Yet
+Problem no 2: https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/ : Done
+Problem no 3: https://leetcode.com/problems/valid-palindrome/ : Done
+Problem no 4: https://leetcode.com/problems/remove-duplicates-from-sorted-array/ : One Solution proposed
 
-for i in range(m):
-    
-
+Evening Set:
+Problem no 5: https://leetcode.com/tag/two-pointers/: https://leetcode.com/problems/remove-element/ : Done using referring a solution, in line with the iterative approach
+Problem no 6: https://leetcode.com/problems/move-zeroes/ : Naive Solution Processed
 '''
+'''
+Problem 1 of the day: Merge Sorted Array    
+'''
+def merge(nums1, nums2, m, n):
+    pointerOne, pointerTwo = 0, 0
+
+
 
 
 '''
@@ -103,10 +107,7 @@ def removeDuplicates(nums):
     
     return nums, k
 
-nums = [0,0,1,1,1,2,2,3,3,4]
-'''
-
-
+Solution two:
 def removeDuplicates(nums):
     start = 0
     k = 0
@@ -124,9 +125,84 @@ def removeDuplicates(nums):
         start += 1;
         
         return nums, k
+nums = [0,0,1,1,1,2,2,3,3,4]
+'''
+
+
+def removeDuplicates(nums):
+    start, end = 0, len(nums) - 1
+    k = 0
+
+    while (end > start):
+        if (nums[start] == nums[end]):
+            del nums[end];
+            nums.append("_");
+            start += 1;
+            end = len(nums) - 1
+        elif(nums[start] != nums[end]):
+            end -= 1;
+            k += 1;
+    
+    return k
 
 
 nums = [0,0,1,1,1,2,2,3,3,4]
 print(f"{removeDuplicates(nums)}")
+
+
+'''
+Problem No 5:
+Remove Element
+
+First Solution:
+def removeElement(nums, val):
+    start = 0;
+    k = 0;
+    while (start < len(nums)):
+        if (nums[start] == val):
+            del nums[start]
+            nums.append("_")
+            start += 1;
+            print(start)
+        else:
+            start += 1;
+            k += 1
+    
+    return k, nums
+
+print(f"{removeElement([0,1,2,2,3,0,4,2], 2)}")
+'''
+
+def removeElement(nums, val):
+    k = 0;
+    for i in range(len(nums)):
+        if nums[i] != val:
+            nums[k] = nums[i]
+            k += 1;
+    return k
+
+print(f"{removeElement([0,1,2,2,3,0,4,2], 2)}")
+
+
+'''
+Problem No 6:
+Move Zeroes
+'''
+
+def moveZeroes(nums):
+    start = 0;
+    end = 1;
+    while(end < len(nums)):
+        if ((nums[start] == nums[end])):
+            end += 1;
+        elif ((nums[start] == 0)):
+            nums[start], nums[end] = nums[end], nums[start]
+            start += 1;
+            end += 1;
+    return nums
+    
+print(f"{moveZeroes([1,0])}")
+
+
 
 
