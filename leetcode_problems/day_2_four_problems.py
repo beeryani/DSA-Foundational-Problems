@@ -1,7 +1,14 @@
 '''
 General Theme Sliding Window technique
+Note: Picking problems from this resource:
+https://medium.com/techie-delight/top-problems-on-sliding-window-technique-8e63f1e2b1fa
+Morning Session:
 Problem no 1: https://leetcode.com/problems/maximum-average-subarray-i/ : Done; had to change approach in terms from Kadane to Sliding Window
 Problem no 2: https://leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores/ : Done; had to look really closely at HIGHEST and LOWEST of K scores :/
+
+Evening Session:
+Problem no 3: https://leetcode.com/problems/minimum-size-subarray-sum/ : Naive Approach worked: Prefix Sum Approach is time efficient but not space efficient as a large input size can take
+up large memory spaces.
 '''
 
 #example problem to establish pattern
@@ -30,9 +37,6 @@ def findMaxAverage(nums, k):
 
 print(f"{findMaxAverage([5], 1)}")
 '''
-
-
-    
 
 #iteration 2: based on a small blog explanation
 
@@ -68,5 +72,51 @@ def minimumDifference(nums, k):
 
     return minDiff
 
-print(f"{minimumDifference([9, 4, 1, 7, 8],4)}")
+# print(f"{minimumDifference([9, 4, 1, 7, 8],4)}")
 
+'''
+Problem 3:
+Minimum Size Subarray Sum
+
+#Iteration 1: Prefix Sum based solution
+def minSubArrayLen(target, nums):
+    #calculating the prefixSum array of the input array
+    def prefixSum(nums):
+        tempSum = nums[0]
+        for i in range(1, len(nums)):
+            tempSum += nums[i]
+            nums[i] = tempSum
+        return nums
+    
+    start, end = 0, len(nums) - 1
+    nums = prefixSum(nums) # calling helper function
+
+    while (end < len(nums)):
+        if ((nums[end] - nums[start]) > target):
+            start += 1;
+        elif ((nums[end] - nums[start] == target)):
+            return end - start
+    return 0
+
+print(f"{minSubArrayLen(7, [2,3,1,2,4,3])}")
+'''
+
+#iteration 1; an attempt to find an O(n) solution
+
+def minSubArrayLen(target, nums):
+    #calculating the prefixSum array of the input array
+    n = len(nums);
+    maxLength = n + 1;
+    windowSum, start, currentLength = 0, 0, maxLength;
+
+    for end in range(len(nums)):
+        windowSum += nums[end]
+        while (target <= windowSum):
+            currentLength = min(currentLength, end - start + 1);
+            windowSum -= nums[start];
+            start += 1;
+
+    return currentLength if currentLength != maxLength else 0
+
+
+print(f"{minSubArrayLen(7, [2,3,1,2,4,3])}")
