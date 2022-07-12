@@ -9,6 +9,8 @@ Problem no 2: https://leetcode.com/problems/minimum-difference-between-highest-a
 Evening Session:
 Problem no 3: https://leetcode.com/problems/minimum-size-subarray-sum/ : Naive Approach worked: Prefix Sum Approach is time efficient but not space efficient as a large input size can take
 up large memory spaces.
+
+Problem no 4: https://leetcode.com/problems/contains-duplicate-ii/ : Naive Approach worked : Wrong Answer in a particular test case
 '''
 
 #example problem to establish pattern
@@ -101,7 +103,7 @@ def minSubArrayLen(target, nums):
 print(f"{minSubArrayLen(7, [2,3,1,2,4,3])}")
 '''
 
-#iteration 1; an attempt to find an O(n) solution
+#iteration 2; Dyanmic Sliding Window Technique being applied:
 
 def minSubArrayLen(target, nums):
     #calculating the prefixSum array of the input array
@@ -120,3 +122,32 @@ def minSubArrayLen(target, nums):
 
 
 print(f"{minSubArrayLen(7, [2,3,1,2,4,3])}")
+
+'''
+Problem No 4:
+Subarray Product less than K:
+'''
+
+# iteration no 1: dynamic sliding window to save on space complexity
+
+def numSubarrayProductLessThanK(nums, k):
+    resultCount = 0;
+    for end in range(len(nums)):
+        start = end;
+        product = 1;
+        if (nums[end] < k):
+            product *= nums[start];
+            resultCount += 1;
+            end += 1;
+        
+        while (end < len(nums)):
+            if (product < k):
+                product *= nums[end];
+                end += 1;
+                resultCount += 1;
+            else:
+                break
+
+    return resultCount - 1 if resultCount != 0 else 0;
+
+print(f"{numSubarrayProductLessThanK([10,5,2,6], 100)}")
