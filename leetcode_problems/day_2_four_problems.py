@@ -1,13 +1,15 @@
 '''
 General Theme Sliding Window technique
 Problem no 1: https://leetcode.com/problems/maximum-average-subarray-i/ : Done; had to change approach in terms from Kadane to Sliding Window
+Problem no 2: https://leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores/ : Done; had to look really closely at HIGHEST and LOWEST of K scores :/
 '''
 
 #example problem to establish pattern
 
 '''
 Types of sliding windows:
-1. Statically Sized Sliding Window:
+1. Statically Sized Sliding Window: Problem 1
+2. Dynamically Sized Sliding Window
 '''
 
 #type one question
@@ -44,3 +46,27 @@ def findMaxAverage2(nums, k):
     return float(maxSum)/k    
 
 print(f"{findMaxAverage2([1,12,-5,-6,50,3], 4)}")
+
+
+'''
+Problem 2
+Minimum Difference between k numbers randomly picked
+'''
+
+# iteration 1 based on the above principle of dynamic sliding window technique
+
+def minimumDifference(nums, k):
+    nums.sort()
+    start, end = 0, k - 1;
+    minDiff = currDiff = 1e8;
+
+    while end < len(nums):
+        currDiff = nums[end] - nums[start];
+        minDiff = min(minDiff, currDiff);
+        start += 1;
+        end += 1;
+
+    return minDiff
+
+print(f"{minimumDifference([9, 4, 1, 7, 8],4)}")
+
