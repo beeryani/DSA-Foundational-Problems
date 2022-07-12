@@ -202,7 +202,3 @@ def moveZeroes(nums):
     return nums
     
 print(f"{moveZeroes([1,0])}")
-
-
-
-
