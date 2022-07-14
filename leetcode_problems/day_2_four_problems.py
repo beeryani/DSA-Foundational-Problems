@@ -3,7 +3,7 @@ General Theme Sliding Window technique
 Note: Picking problems from this resource:
 https://medium.com/techie-delight/top-problems-on-sliding-window-technique-8e63f1e2b1fa
 Morning Session:
-Problem no 1: https://leetcode.com/problems/maximum-average-subarray-i/ : Done; had to change approach in terms from Kadane to Sliding Window
+Problem no 1:  : Done; had to change approach in terms from Kadane to Sliding Window
 Problem no 2: https://leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores/ : Done; had to look really closely at HIGHEST and LOWEST of K scores :/
 
 Evening Session:
