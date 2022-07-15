@@ -1,4 +1,4 @@
-# Concepts studied on 20220607
+# Concepts studied on 20220706
 ## Important concepts from various tutorials and lectures
 
 ### Main Source:
@@ -29,4 +29,15 @@ generation of `temporal dead zone` which leads to error in case let or const var
 
 Recommended Reading (https://javascript.info/closure)
 
+---
 
+# Concepts studied on 20220707
+## Important concepts from various tutorials and lectures
+
+## Concept 1 : Callback Functions
+
+Main takeaways on how to use Closures to hide variables from the global scope to avoid any interference while dealing with a larger code base.
+
+## Concept 2 : Event Loops
+
+## Concept 3 : Block Scope
