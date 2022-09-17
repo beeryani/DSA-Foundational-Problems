@@ -3,7 +3,6 @@ Sample Problem No 1 in Stacks on Educative
 
 Declare the Stack properly; the error that came in this runtime was due to lack of return statement in the method "pop" being called
 '''
-import imp
 from stack import Stack
 
 def Solution(inputString):
@@ -41,6 +40,7 @@ def Solution(inputString):
     else:
         return False
 
-testString = "{}"
+testString = "{[]"
 print(Solution(testString))
 
+print(type("5"))

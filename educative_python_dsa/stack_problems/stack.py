@@ -6,7 +6,7 @@ class Stack():
         self.items.append(item)
     
     def pop(self):
-        self.items.pop();
+        return self.items.pop();
     
     def getStack(self):
         return self.items
@@ -17,3 +17,9 @@ class Stack():
     def peek(self):
         if self.items != []:
             return self.items[-1]
+
+    def returnStack(self):
+        return print(self.items)
+    
+    def getLength(self):
+        return len(self.items)
